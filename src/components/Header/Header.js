@@ -24,9 +24,9 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg='primary' variant='dark' expand='md'>
+  <Navbar style={{ position: 'fixed', height: '3rem' }} bg='primary' variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>react-auth-template</Link>
+      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>MusicFlix</Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>

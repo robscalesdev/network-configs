@@ -1,6 +1,6 @@
 /* eslint-disable no-tabs */
 import React, { Component, Fragment } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
@@ -10,6 +10,9 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import { signIn } from './api/auth'
+import Movies from './components/movies/Movies'
+import Movie from './components/movies/Movie'
 
 class App extends Component {
   constructor (props) {
@@ -39,6 +42,18 @@ class App extends Component {
     })
   }
 
+  // automatic sign-in
+  componentDidMount () {
+    const credentials = {
+      email: 'test@class',
+      password: 'test'
+    }
+
+    signIn(credentials)
+      .then(res => this.setUser(res.data.user))
+      .catch(console.error)
+  }
+
   render () {
     const { msgAlerts, user } = this.state
 
@@ -56,36 +71,49 @@ class App extends Component {
           />
         ))}
 	      <main className='container'>
+          <Routes>
 	        <Route
-            path='/sign-up'
-            render={() => (
-              <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-            )}
-          />
-          <Route
-            path='/sign-in'
-            render={() => (
-              <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/sign-out'
-            render={() => (
-              <SignOut
-                msgAlert={this.msgAlert}
-                clearUser={this.clearUser}
-                user={user}
-              />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/change-password'
-            render={() => (
-              <ChangePassword msgAlert={this.msgAlert} user={user} />
-            )}
-          />
+              path='/sign-up'
+              render={() => (
+                <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+              )}
+            />
+            <Route
+              path='/sign-in'
+              render={() => (
+                <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/sign-out'
+              render={() => (
+                <SignOut
+                  msgAlert={this.msgAlert}
+                  clearUser={this.clearUser}
+                  user={user}
+                />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/change-password'
+              render={() => (
+                <ChangePassword msgAlert={this.msgAlert} user={user} />
+              )}
+            />
+            <Route
+              path='/movies/:id'
+              render={() => (
+                <Movie />
+              )}/>
+            <Route
+              path='/'
+              render={() => (
+                <Movies />
+              )}
+            />
+          </Routes>
         </main>
       </Fragment>
     )
