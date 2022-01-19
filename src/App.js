@@ -3,7 +3,6 @@ import React, { Component, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
-import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
 import SignUp from './components/auth/SignUp'
@@ -72,46 +71,40 @@ class App extends Component {
         ))}
 	      <main className='container'>
           <Routes>
-	        <Route
+	         <Route
               path='/sign-up'
-              render={() => (
+              element={
                 <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-              )}
+              }
             />
             <Route
               path='/sign-in'
-              render={() => (
+              element={
                 <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-              )}
+              }
             />
-            <AuthenticatedRoute
-              user={user}
+            <Route
               path='/sign-out'
-              render={() => (
+              element={
                 <SignOut
                   msgAlert={this.msgAlert}
                   clearUser={this.clearUser}
                   user={user}
                 />
-              )}
+              }
             />
-            <AuthenticatedRoute
-              user={user}
+            <Route
               path='/change-password'
-              render={() => (
+              element={
                 <ChangePassword msgAlert={this.msgAlert} user={user} />
-              )}
+              }
             />
             <Route
               path='/movies/:id'
-              render={() => (
-                <Movie />
-              )}/>
+              element={<Movie />}/>
             <Route
               path='/'
-              render={() => (
-                <Movies />
-              )}
+              element={<Movies />}
             />
           </Routes>
         </main>

@@ -8,7 +8,7 @@ const Movie = () => {
         width: '100%',
         height: '70%'
       }}>
-        <h1>Youtube Link</h1>
+        <h1>message board link</h1>
       </div>
       <MessageBoard />
     </div>

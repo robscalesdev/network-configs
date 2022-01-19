@@ -8,7 +8,7 @@ const MovieIcon = () => {
       border: 'solid',
       margin: '5px'
     }}>
-      <p>movie icons</p>
+      <p>message board icons</p>
     </div>
   )
 }

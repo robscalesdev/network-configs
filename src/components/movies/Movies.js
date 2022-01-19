@@ -1,7 +1,6 @@
 import React from 'react'
 import Banner from './Banner'
 import Row from './Row'
-import { withRouter } from 'react-router-dom'
 
 const Movies = () => {
   // banner (main view 70%)
@@ -9,12 +8,12 @@ const Movies = () => {
     <main>
       <Banner />
       <Row genre={ 'Trending Now' }/>
-      <Row genre={ 'Actions' } />
-      <Row genre={ 'Comedies' } />
+      <Row genre={ 'Title one' } />
+      <Row genre={ 'Title two' } />
 
     </main>
 
   )
 }
 
-export default withRouter(Movies)
+export default Movies
