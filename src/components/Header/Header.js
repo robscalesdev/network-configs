@@ -1,12 +1,25 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { Link, NavLink } from 'react-router-dom'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import { NavLink } from 'react-router-dom'
+import styles from '../styles/Navbar.module.css'
 
 const authenticatedOptions = (
   <Fragment>
-    <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
-    <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
+
+    <img
+      src="https://i.imgur.com/YcP0tik.jpeg"
+      height="35"
+      width="35"
+      className="d-inline-block align-top"
+      alt="profile icon"
+    />
+    <NavDropdown>
+      <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
+      <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
+    </NavDropdown>
+
   </Fragment>
 )
 
@@ -17,25 +30,18 @@ const unauthenticatedOptions = (
   </Fragment>
 )
 
-const alwaysOptions = (
-  <Fragment>
-    <NavLink exact to='/' className='nav-link'>Home</NavLink>
-  </Fragment>
-)
-
 const Header = ({ user }) => (
-  <Navbar style={{ position: 'fixed', height: '3rem' }} bg='primary' variant='dark' expand='md'>
-    <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>MusicFlix</Link>
-    </Navbar.Brand>
+  <Navbar className={ styles.navbar } expand='md'>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    <Navbar.Collapse id='basic-navbar-nav'>
-      <Nav className='ml-auto'>
-        {user && (
-          <span className='navbar-text mr-2'>Welcome, {user.email}</span>
-        )}
-        {alwaysOptions}
+    <Navbar.Brand>
+      <NavLink to='/' style={{ color: '#FFF', textDecoration: 'none' }}>MusicFlix</NavLink>
+    </Navbar.Brand>
+    <Navbar.Collapse id='basic-navbar-nav' className={styles.menu}>
+      <Nav>
         {user ? authenticatedOptions : unauthenticatedOptions}
+        {user && (
+          <span className='navbar-text'>{user.email}</span>
+        )}
       </Nav>
     </Navbar.Collapse>
   </Navbar>

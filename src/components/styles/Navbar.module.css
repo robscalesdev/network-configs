@@ -1,0 +1,13 @@
+ .navbar {
+     background-color: rgba(0, 0, 0, 0.269);
+    padding-left: 5%;
+
+ }
+
+ .menu {
+     justify-content: end;
+     align-items: flex-end;
+     display: flex;
+     padding-right: 5%;
+
+ }
