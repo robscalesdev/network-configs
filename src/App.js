@@ -101,7 +101,7 @@ class App extends Component {
             />
             <Route
               path='/movies/:id'
-              element={<Movie />}/>
+              element={<Movie user={user} />}/>
             <Route
               path='/'
               element={<Movies />}

@@ -1,16 +1,20 @@
 import React from 'react'
 import MessageBoard from './MessageBoard'
 
-const Movie = () => {
+const Movie = ({ user }) => {
   return (
     <div>
       <div style={{
         width: '100%',
-        height: '70%'
+        height: '70vh',
+        borderStyle: 'solid',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}>
         <h1>message board link</h1>
       </div>
-      <MessageBoard />
+      <MessageBoard user={user}/>
     </div>
   )
 }
