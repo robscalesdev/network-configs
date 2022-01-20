@@ -1,5 +1,6 @@
 import React from 'react'
 import MessageBoard from './MessageBoard'
+// import styles from '../styles/Movie.module.css'
 
 const Movie = ({ user }) => {
   return (
