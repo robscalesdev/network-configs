@@ -1,0 +1,79 @@
+
+.banner {
+  /* background-image: url('https://images-na.ssl-images-amazon.com/images/I/819cf1ZR2WL.jpg'); */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  
+  flex-grow: 0;
+  border-radius: 20px;
+}
+
+.infoBtn {
+  width: 8%;
+  border-radius: 25px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 0;
+}
+.infoBtn:hover {
+  width: 9%;
+  border-radius: 25px;
+  color: red;
+  background-color: rgb(0, 0, 0, .8);
+}
+
+.title{
+  font-size: 5rem;
+}
+
+.description {
+  font-size: 25px;
+  width: 16%;
+  background-color: rgb(0, 0, 0, .6);
+  color: white;
+  border-radius: 25px;
+}
+
+.bannerButtons {
+
+}
+
+
+@media (max-width: 800px) {
+  body{
+    font-size: 2rem;
+  }
+  .infoBtn{
+    border-radius: 10%;
+    padding: 2px;
+    font-size: 1rem;
+    width: 50px;
+  }
+
+  .title{
+    font-size: 2rem;
+  }
+
+}
+
+@media (max-width: 500px) {
+  body{
+    font-size: 3rem;
+  }
+  button{
+    border-radius: 10%;
+    padding: 2px;
+    font-size: 2rem;
+    
+  }
+
+  .title{
+    font-size: 2rem;
+  }
+
+}
