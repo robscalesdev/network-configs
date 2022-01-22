@@ -1,22 +1,32 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import styles from '../styles/Banner.module.css'
+const pic1 = 'https://images-na.ssl-images-amazon.com/images/I/819cf1ZR2WL.jpg'
 const Banner = () => {
-  // background image
+  const [movie, setMovie] = useState('')
+
+  const info = {
+    title: 'Dying Hard With More Force Applied.....2!!',
+    description: 'Dying has never been so easy. Yippy Ki Yui Yayy Mother F****R. P.S. Tis The Season For A Great Christmas Movie.'
+  }
+  useEffect(() => {
+    // const fetchData = async () => {
+    //   const res = await
+    // }
+    setMovie(pic1)
+  }, [])
 
   return (
-    <div col-sm style={ {
-      width: '100%',
-      height: '75vh',
-      borderStyle: 'solid',
-      display: 'flex',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      flexGrow: '0'
-    }}>
-      <h2>Movie Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <button>read more</button>
-      <button>More Info</button>
+    <div className={styles.banner} style={{ backgroundImage: `url(${movie})` }}>
+      <h2 className={styles.title}>{info.title}</h2>
+      <div>
+        <textarea className={styles.description} rows='4' cols='2'>
+          {info.description}
+        </textarea>
+        <div className={styles.bannerButtons}>
+          <button className={styles.infoBtn}>read more</button>
+          <button className={styles.infoBtn}>More Info</button>
+        </div>
+      </div>
     </div>
   )
 }

@@ -7,17 +7,26 @@ export const getMovies = (genre) => {
     method: 'GET'
   })
 }
+export const getMovie = (id) => {
+  return axios({
+    url: apiUrl + `/movies/${id}`,
+    method: 'GET'
+  })
+}
 
-export const createMessage = (body) => {
+export const createMovie = (body) => {
   console.log(body)
   return axios({
-    url: apiUrl + '/messages/',
+    url: apiUrl + '/movies/',
     method: 'POST',
     data: {
-      message: {
-        board: body.board,
-        text: body.text,
-        owner: body.owner
+      movie: {
+        title: body.title,
+        genre: body.genre,
+        owner: body.owner,
+        image: body.image,
+        link: body.link,
+        description: body.description
       }
     }
   })
@@ -30,12 +39,12 @@ export const deleteMessage = (id) => {
   })
 }
 
-export const changeMessage = (id, text) => {
+export const changeMovie = (id, movie) => {
   return axios({
-    url: apiUrl + `/messages/${id}`,
+    url: apiUrl + `/movies/${id}`,
     method: 'PATCH',
-    message: {
-      text
+    data: {
+      movie
     }
   })
 }

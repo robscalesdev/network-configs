@@ -12,6 +12,9 @@ import ChangePassword from './components/auth/ChangePassword'
 import { signIn } from './api/auth'
 import Movies from './components/movies/Movies'
 import Movie from './components/movies/Movie'
+import Admin from '../src/components/movies/Admin'
+import AdminMovie from '../src/components/movies/AdminMovie'
+import MovieCreate from './components/movies/MovieCreate'
 
 class App extends Component {
   constructor (props) {
@@ -105,6 +108,19 @@ class App extends Component {
             <Route
               path='/'
               element={<Movies />}
+            />
+
+            <Route
+              path='/admin'
+              element={<Admin />}
+            />
+            <Route
+              path='/adminMovie/new'
+              element={<MovieCreate />}
+            />
+            <Route
+              path='/adminMovie/:id'
+              element={<AdminMovie />}
             />
           </Routes>
         </main>
