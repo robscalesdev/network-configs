@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MovieIcon = () => {
+const MovieIcon = ({ movie }) => {
   return (
     <div style={{
       width: '300px',
@@ -8,7 +8,7 @@ const MovieIcon = () => {
       border: 'solid',
       margin: '5px'
     }}>
-      <p>message board icons</p>
+      <p>{movie.title}</p>
     </div>
   )
 }

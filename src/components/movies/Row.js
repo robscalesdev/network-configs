@@ -1,20 +1,21 @@
 import React from 'react'
 import MovieIcon from './MovieIcon'
+import { Link } from 'react-router-dom'
 
-const Row = ({ genre }) => {
+const Row = ({ genre, movies }) => {
   return (
-    <div>
+    <div style={{ overflowX: 'scroll' }}>
       <h3>{genre}</h3>
       <div style={{
         display: 'flex'
       }}>
-        <MovieIcon />
-        <MovieIcon />
-        <MovieIcon />
-        <MovieIcon />
-        <MovieIcon />
-        <MovieIcon />
-        <MovieIcon />
+        {movies.map(movie => {
+          return (
+            <Link to={`/movies/${movie._id}`} key={movie._id}>
+              <MovieIcon movie={movie}/>
+            </Link>
+          )
+        })}
       </div>
     </div>
 
