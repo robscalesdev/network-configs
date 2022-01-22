@@ -40,7 +40,7 @@
 }
 
 .bannerButtons {
-
+  border: 2px solid red;
 }
 
 
@@ -49,9 +49,9 @@
     font-size: 2rem;
   }
   .infoBtn{
-    border-radius: 10%;
+    border-radius: 15px;
     padding: 2px;
-    font-size: 1rem;
+    font-size: 11px;
     width: 50px;
   }
 
@@ -65,7 +65,7 @@
   body{
     font-size: 3rem;
   }
-  button{
+  .infoBtn{
     border-radius: 10%;
     padding: 2px;
     font-size: 2rem;
