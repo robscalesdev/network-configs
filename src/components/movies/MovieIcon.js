@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import styles from '../styles/Movie.module.css'
 
-const MovieIcon = ({ movie }) => {
+// const iconImage = 'https://i.imgur.com/NeB2R69.jpeg'
+
+const MovieIcon = () => {
+  const [movie, setMovie] = useState([])
+
+  useEffect(() => {
+    getMovie()
+      .then(response => {
+        console.log(movie)
+        setMovie(response.data.movie)
+      })
+      .catch(console.error)
+  }, [])
+
   return (
-    <div style={{
-      width: '300px',
-      height: '100px',
-      border: 'solid',
-      margin: '5px'
-    }}>
-      <p>{movie.title}</p>
-    </div>
+    <>
+      <div className={styles.movieIcon} >
+        <img src={ movie.image }/>
+        <h4>{movie.title}</h4>
+      </div>
+    </>
   )
 }
 

@@ -3,3 +3,10 @@
         width: '100%';
         height: '70%'
       }
+
+.movieIcon {
+  width: '30px';
+  height: '10px';
+  border: '1px';
+  margin: '5px';
+}
