@@ -9,11 +9,12 @@ const Row = ({ genre, movies }) => {
       <h3>{genre}</h3>
       <div style={{
         display: 'flex',
-        overflowX: 'scroll'
+        overflowX: 'scroll',
+        textDecoration: 'none'
       }}>
         {movies.map(movie => {
           return (
-            <Link to={`/movies/${movie._id}`} key={movie._id}>
+            <Link style={{ textDecoration: 'none', color: '#111' }} to={`/movies/${movie._id}`} key={movie._id}>
               <MovieIcon movie={movie}/>
             </Link>
           )

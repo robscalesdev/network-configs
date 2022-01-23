@@ -3,9 +3,10 @@
   height: 10rem;
   border-style: solid;
   margin: 5px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .movieText {
   text-align: center;
+  color: #FFF;
 }
