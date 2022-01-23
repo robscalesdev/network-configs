@@ -89,7 +89,7 @@ const MessageBoard = ({ user }) => {
         <button>Submit</button>
       </form>}
       {messages.map(message => {
-        return <Message key={message._id} message={message}/>
+        return <Message key={message._id} message={message} user={user}/>
       })}
     </div>
   )

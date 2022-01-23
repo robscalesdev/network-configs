@@ -23,10 +23,11 @@ export const createMessage = (body) => {
   })
 }
 
-export const deleteMessage = (id) => {
+export const deleteMessage = (id, user) => {
   return axios({
     url: apiUrl + `/messages/${id}`,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: { Authorization: `Bearer ${user.token}` }
   })
 }
 

@@ -32,9 +32,9 @@ export const createMovie = (body) => {
   })
 }
 
-export const deleteMessage = (id) => {
+export const deleteMovie = (id) => {
   return axios({
-    url: apiUrl + `/messages/${id}`,
+    url: apiUrl + `/movies/${id}`,
     method: 'DELETE'
   })
 }
