@@ -6,10 +6,32 @@ const Admin = () => {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
-    getMovies('action')
-      .then(res => { setMovies(res.data.movies) })
-    console.log(movies)
+    getMovies('trending')
+      .then(res => {
+        res.data.movies.forEach(element => {
+          setMovies(prev => [...prev, element])
+        })
+      })
+      .catch(console.error)
   }, [])
+
+  useEffect(() => {
+    getMovies('rock')
+      .then(res => {
+        res.data.movies.forEach(element => {
+          setMovies(prev => [...prev, element])
+        })
+      })
+      .catch(console.error)
+  }, [])
+
+  // useEffect(() => {
+  //   getMovies('action')
+  //     .then(res => {
+  //       setMovies(movies.concat(res.data.movies))
+  //     })
+  //     .catch(console.error)
+  // }, [])
 
   return (
     <>

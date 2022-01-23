@@ -75,7 +75,7 @@ const MessageBoard = ({ user }) => {
         <input value={numMessages} onChange={onNumMessageChange} style={{ width: '3rem', textAlign: 'center' }}></input>
         <button onClick={onRefresh}>Refresh</button>
       </div>
-      (user && <form onSubmit={onSubmit} style={{
+      {user && <form onSubmit={onSubmit} style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
@@ -87,7 +87,7 @@ const MessageBoard = ({ user }) => {
         }}
         value={newMessage} onChange={onMessageChange}></input>
         <button>Submit</button>
-      </form>)
+      </form>}
       {messages.map(message => {
         return <Message key={message._id} message={message}/>
       })}

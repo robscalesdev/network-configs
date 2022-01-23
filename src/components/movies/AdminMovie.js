@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { getMovie, changeMovie } from '../../api/movies'
 
 const AdminMovie = () => {
   const [movie, setMovie] = useState({})
+  const [updated, setUpdated] = useState(false)
   const { id } = useParams()
 
   useEffect(() => {
@@ -15,17 +16,22 @@ const AdminMovie = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     changeMovie(id, movie)
+      .then(() => {
+        setUpdated(true)
+      })
   }
 
   const handleChange = (event) => {
-    console.log(event.target.name)
-    console.log(movie)
     setMovie({ ...movie, [event.target.name]: event.target.value })
+  }
+
+  if (updated) {
+    return <Navigate to='/admin' />
   }
 
   return (
     <div>
-      <img src={ movie.image } />
+      <img style={{ width: '20rem' }} src={ movie.image } />
       <form onSubmit={handleSubmit}>
         <button>Update</button>
         <label>
