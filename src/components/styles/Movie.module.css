@@ -1,6 +1,6 @@
 .movieIcon {
-  width: 20rem;
   height: 10rem;
+  width: 20rem;
   border-style: solid;
   margin: 5px;
   overflow: hidden;
@@ -9,4 +9,8 @@
 .movieText {
   text-align: center;
   color: #FFF;
+}
+
+.display {
+  padding-top: 3rem;  
 }

@@ -8,6 +8,7 @@ const Row = ({ genre, movies }) => {
     <div className={styles.row}>
       <h3>{genre}</h3>
       <div style={{
+        height: 'fit-content',
         display: 'flex',
         overflowX: 'scroll',
         textDecoration: 'none'
