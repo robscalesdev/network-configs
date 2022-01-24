@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
+import Spacer from './components/Header/Spacer'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
 import SignUp from './components/auth/SignUp'
@@ -62,6 +63,7 @@ class App extends Component {
     return (
       <Fragment>
 	      <Header user={user} />
+        <Spacer />
 	      {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
