@@ -13,34 +13,55 @@
   border-radius: 20px;
 }
 
+.containerLeft {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
 .infoBtn {
-  width: 8%;
+  width: 20%;
   border-radius: 25px;
   color: black;
   background-color: rgba(255, 255, 255, 0.5);
   margin-top: 0;
 }
 .infoBtn:hover {
-  width: 9%;
+  width: 20%;
   border-radius: 25px;
   color: red;
   background-color: rgb(0, 0, 0, .8);
 }
 
 .title{
-  font-size: 5rem;
+  font-size: 2.4rem;
+  color: white;
+  /* border: 2px solid red; */
+  width: 70%;
+}
+
+.descriptionContainer {
+ /* border: 2px solid red; */
 }
 
 .description {
-  font-size: 25px;
-  width: 16%;
-  background-color: rgb(0, 0, 0, .6);
+  font-size: 1rem;
+  width: 70%;
+  height: 100%;
+  /* background-color: rgb(0, 0, 0, .6); */
   color: white;
-  border-radius: 25px;
+  border-radius: 15px;
+  padding-left: 21px;
+  overflow: hidden;
 }
 
 .bannerButtons {
-  border: 2px solid red;
+  /* border: 2px solid blue; */
 }
 
 
@@ -51,12 +72,19 @@
   .infoBtn{
     border-radius: 15px;
     padding: 2px;
-    font-size: 11px;
-    width: 50px;
+    font-size: 1rem;
+    width: 10px;
+    height: 25px;
   }
 
   .title{
     font-size: 2rem;
+  }
+
+  .description{
+    width: 25%;
+    height: 50%;
+    overflow: hidden;
   }
 
 }
