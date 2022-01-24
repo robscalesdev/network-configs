@@ -76,7 +76,7 @@ const Movies = ({ user }) => {
 
   return (
     <main className={styles.main}>
-      <Banner />
+      <Banner movie={trendingNow[0]}/>
       <Row genre={ 'Trending Now' } user={user} movies={trendingNow}/>
       <Row genre={ 'Rock' } user={user} movies={rock}/>
       <Row genre={ 'Classic Rock' } user={user} movies={cRock}/>
