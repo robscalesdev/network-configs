@@ -15,16 +15,6 @@ const Admin = () => {
       .catch(console.error)
   }, [])
 
-  useEffect(() => {
-    getMovies('rock')
-      .then(res => {
-        res.data.movies.forEach(element => {
-          setMovies(prev => [...prev, element])
-        })
-      })
-      .catch(console.error)
-  }, [])
-
   // useEffect(() => {
   //   getMovies('action')
   //     .then(res => {
