@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+// import { Navigate } from 'react-router-dom'
 import { deleteMessage } from '../../api/messages'
 
-const Message = ({ message, user }) => {
+const Message = ({ message, user, refresh }) => {
   const [deleted, setDeleted] = useState(false)
 
   const handleDelete = (event) => {
@@ -11,13 +11,12 @@ const Message = ({ message, user }) => {
     deleteMessage(message._id, user)
       .then(() => {
         setDeleted(true)
+        refresh()
       })
       .catch(console.error)
   }
 
-  if (deleted) {
-    return <Navigate to='/movies/:id' />
-  }
+  console.log(deleted)
 
   return (
     <div style={{
@@ -27,11 +26,11 @@ const Message = ({ message, user }) => {
       marginLeft: '10%',
       width: '80%'
     }}>
-      <p style={{ padding: '1rem' }}>{message.owner}</p>
+      <p style={{ padding: '1rem', width: '20rem' }}>{message.owner.email}</p>
       <p style={{ padding: '1rem', width: '80%' }}>{message.text}</p>
-      <div style={{ float: 'right' }}>
-        <button>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+      <div style={{ float: 'right', width: '20rem' }}>
+        {user && user.token === message.owner.token && <button>Edit</button>}
+        {user && user.token === message.owner.token && <button onClick={handleDelete}>Delete</button>}
       </div>
     </div>
   )
