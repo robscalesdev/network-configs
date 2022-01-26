@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react'
 import styles from '../styles/Banner.module.css'
 import { Link } from 'react-router-dom'
 
-// const pic1 = 'https://images-na.ssl-images-amazon.com/images/I/819cf1ZR2WL.jpg'
-
 const Banner = ({ movie }) => {
   const [hovered, setHovered] = useState(false)
   const [percent, setPercent] = useState('')
   const [year, setYear] = useState('')
   const [seasons, setSeasons] = useState('')
-
 
   useEffect(() => {
     setPercent(randomNum(90, 98))
@@ -27,7 +24,6 @@ const Banner = ({ movie }) => {
   if (movie.description) {
     cutDescriptionLength(movie.description)
   }
-
 
   const randomNum = (min, max) => {
     min = Math.ceil(min)

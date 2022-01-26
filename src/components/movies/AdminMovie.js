@@ -10,7 +10,7 @@ const AdminMovie = () => {
   useEffect(() => {
     getMovie(id)
       .then(res => { setMovie(res.data.movie) })
-    console.log(movie)
+      .catch(console.error)
   }, [])
 
   const handleSubmit = (event) => {
