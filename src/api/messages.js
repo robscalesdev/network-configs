@@ -35,8 +35,10 @@ export const changeMessage = (id, text) => {
   return axios({
     url: apiUrl + `/messages/${id}`,
     method: 'PATCH',
-    message: {
-      text
+    data: {
+      message: {
+        text
+      }
     }
   })
 }

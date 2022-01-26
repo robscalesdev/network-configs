@@ -1,13 +1,38 @@
-import React from 'react'
-import { deleteMessage } from '../../api/messages'
+import React, { useState } from 'react'
+import { changeMessage, deleteMessage } from '../../api/messages'
 
 const Message = ({ message, user, refresh }) => {
+  const [msg, setMsg] = useState(message.text)
+  const [editing, setEditing] = useState(false)
+
   const handleDelete = () => {
     deleteMessage(message._id, user)
       .then(() => {
         refresh()
       })
       .catch(console.error)
+  }
+
+  const handleEdit = () => {
+    changeMessage(message._id, msg)
+      .then(() => {
+        refresh()
+        setEditing(false)
+      })
+      .catch(console.error)
+  }
+
+  const editChange = (e) => {
+    setMsg(e.target.value)
+  }
+
+  const startEdit = () => {
+    setEditing(true)
+  }
+
+  const cancelEdit = () => {
+    setEditing(false)
+    setMsg(message.text)
   }
 
   return (
@@ -19,10 +44,13 @@ const Message = ({ message, user, refresh }) => {
       width: '80%'
     }}>
       <p style={{ padding: '1rem', width: '20rem' }}>{message.owner.email}</p>
-      <p style={{ padding: '1rem', width: '80%' }}>{message.text}</p>
+      {!editing && <p style={{ padding: '1rem', width: '80%' }}>{msg}</p>}
+      {editing && <input style={{ padding: '1rem', width: '80%' }} value={msg} onChange={editChange}></input>}
       <div style={{ float: 'right', width: '20rem' }}>
-        {user && user.token === message.owner.token && <button>Edit</button>}
-        {user && user.token === message.owner.token && <button onClick={handleDelete}>Delete</button>}
+        {!editing && user && user.token === message.owner.token && <button onClick={startEdit}>Edit</button>}
+        {editing && <button onClick={handleEdit}>Submit</button>}
+        {editing && <button onClick={cancelEdit}>Cancel</button>}
+        {!editing && user && user.token === message.owner.token && <button onClick={handleDelete}>Delete</button>}
       </div>
     </div>
   )

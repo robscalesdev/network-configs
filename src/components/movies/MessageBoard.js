@@ -39,7 +39,6 @@ const MessageBoard = ({ user }) => {
   const onRefresh = (e) => {
     getMessages(id)
       .then(res => {
-        console.log(res.data)
         setMessages(res.data.messages.reverse().slice(0, numMessages))
       })
       .catch(console.error)
@@ -61,25 +60,48 @@ const MessageBoard = ({ user }) => {
     <div style={{
       marginTop: '2rem',
       width: '100%',
-      height: '500px'
+      height: '500px',
+      backgroundColor: '#fff'
     }}>
-      <h4>message board</h4>
       <div style={{
         display: 'flex',
-        flexDirection: 'row'
-        // justifyContent: 'center',
-        // alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        margin: '0 10%',
+        padding: '2%'
       }}>
-        <p style={{ margin: 'auto 0.5rem auto 1rem' }}> Messages Displayed: </p>
-        <input value={numMessages} onChange={onNumMessageChange} style={{ width: '3rem', textAlign: 'center' }}></input>
-        <button onClick={onRefresh}>Refresh</button>
+        <div style={{ width: '30%' }}>
+          {/* for spacing */}
+        </div>
+        <h4 style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '30%'
+        }}>Message Board</h4>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          alignItems: 'right',
+          marginRight: '10%',
+          width: '30%'
+        }}>
+          <p style={{ margin: 'auto 0.5rem auto 1rem' }}> Messages Displayed: </p>
+          <input value={numMessages} onChange={onNumMessageChange} style={{ width: '3rem', textAlign: 'center' }}></input>
+          <button onClick={onRefresh}>Refresh</button>
+        </div>
       </div>
       {user && <form onSubmit={onSubmit} style={{
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: '1rem',
+        margin: '0 10%'
       }}>
-        <p style={{ margin: 'auto 0.5rem auto 1rem' }}>New message: </p>
+        <p style={{
+          margin: 'auto 0.5rem auto 1rem'
+        }}>New message: </p>
         <input style={{
           width: '50%',
           height: '3rem'
@@ -87,6 +109,7 @@ const MessageBoard = ({ user }) => {
         value={newMessage} onChange={onMessageChange}></input>
         <button>Submit</button>
       </form>}
+
       {messages.map(message => {
         return <Message key={message._id} message={message} user={user} refresh={onRefresh} />
       })}

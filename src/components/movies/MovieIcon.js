@@ -9,7 +9,7 @@ const MovieIcon = ({ movie }) => {
       <div className={styles.movieIcon}>
         <img style={{ width: '100%', height: '100%', outline: 'none' }} src={movie.image} />
       </div>
-      <h4 className={styles.movieText}>{movie.title}</h4>
+      <h6 className={styles.movieText}>{movie.title}</h6>
     </div>
   )
 }

@@ -14,16 +14,17 @@ const Row = ({ genre, movies }) => {
 
   return (
     <div className={styles.row}>
-      <h3>{genre}</h3>
+      <h4>{genre}</h4>
       <div style={{
         height: 'fit-content',
         display: 'flex',
         overflowX: 'scroll',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        padding: '0.5rem'
       }}>
         {genreMovies.map(movie => {
           return (
-            <Link style={{ textDecoration: 'none', color: '#111' }} to={`/movies/${movie._id}`} key={movie._id}>
+            <Link className={styles.link} to={`/movies/${movie._id}`} key={movie._id}>
               <MovieIcon movie={movie}/>
             </Link>
           )

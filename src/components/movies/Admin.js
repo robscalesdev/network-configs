@@ -25,6 +25,7 @@ const Admin = () => {
 
   return (
     <>
+      <h4>For demo purposes</h4>
       <Link to={'/adminMovie/new'}>
         <button>Create New Movie</button>
       </Link>

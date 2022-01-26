@@ -1,9 +1,9 @@
  .navbar {
     position: fixed;
     width: 100vw;
-    background-color: rgb(112, 111, 111);
+    background-color: rgba(17, 17, 17, 0.872);
     padding-left: 5%;
-
+    height: 3rem;
  }
 
  .menu {

@@ -10,6 +10,7 @@ const Banner = ({ movie }) => {
   const [year, setYear] = useState('')
   const [seasons, setSeasons] = useState('')
 
+
   useEffect(() => {
     setPercent(randomNum(90, 98))
     setYear(randomNum(1990, 2022))
@@ -26,6 +27,7 @@ const Banner = ({ movie }) => {
   if (movie.description) {
     cutDescriptionLength(movie.description)
   }
+
 
   const randomNum = (min, max) => {
     min = Math.ceil(min)
