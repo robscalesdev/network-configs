@@ -13,6 +13,7 @@ export const createMessage = (body) => {
   return axios({
     url: apiUrl + '/messages/',
     method: 'POST',
+    headers: { Authorization: `Bearer ${body.owner.token}` },
     data: {
       message: {
         board: body.board,
@@ -31,9 +32,10 @@ export const deleteMessage = (id, user) => {
   })
 }
 
-export const changeMessage = (id, text) => {
+export const changeMessage = (id, text, user) => {
   return axios({
     url: apiUrl + `/messages/${id}`,
+    headers: { Authorization: `Bearer ${user.token}` },
     method: 'PATCH',
     data: {
       message: {

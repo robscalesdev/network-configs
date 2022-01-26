@@ -14,7 +14,7 @@ const Message = ({ message, user, refresh }) => {
   }
 
   const handleEdit = () => {
-    changeMessage(message._id, msg)
+    changeMessage(message._id, msg, user)
       .then(() => {
         refresh()
         setEditing(false)

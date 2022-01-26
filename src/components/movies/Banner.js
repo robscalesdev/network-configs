@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styles from '../styles/Banner.module.css'
 import { Link } from 'react-router-dom'
 
-// const pic1 = 'https://images-na.ssl-images-amazon.com/images/I/819cf1ZR2WL.jpg'
-
 const Banner = ({ movie }) => {
   const [hovered, setHovered] = useState(false)
   const [percent, setPercent] = useState('')

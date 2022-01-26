@@ -5,7 +5,6 @@ import Video from './Video'
 import styles from '../styles/Movie.module.css'
 
 import { getMovie } from '../../api/movies'
-// import styles from '../styles/Movie.module.css'
 
 const Movie = ({ user }) => {
   const { id } = useParams()
@@ -15,7 +14,6 @@ const Movie = ({ user }) => {
     getMovie(id)
       .then(res => {
         setMovie(res.data.movie)
-        console.log(res.data.movie)
       })
   }, [])
 
