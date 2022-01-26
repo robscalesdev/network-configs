@@ -10,7 +10,7 @@ const Row = ({ genre, movies }) => {
     setGenreMovies(movies.filter(movie => {
       return movie.genre === genre
     }))
-  })
+  }, [])
 
   return (
     <div className={styles.row}>
