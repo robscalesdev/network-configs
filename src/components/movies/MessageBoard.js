@@ -39,7 +39,6 @@ const MessageBoard = ({ user }) => {
   const onRefresh = (e) => {
     getMessages(id)
       .then(res => {
-        console.log(res.data)
         setMessages(res.data.messages.reverse().slice(0, numMessages))
       })
       .catch(console.error)

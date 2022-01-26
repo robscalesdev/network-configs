@@ -50,7 +50,7 @@ const Message = ({ message, user, refresh }) => {
         {!editing && user && user.token === message.owner.token && <button onClick={startEdit}>Edit</button>}
         {editing && <button onClick={handleEdit}>Submit</button>}
         {editing && <button onClick={cancelEdit}>Cancel</button>}
-        {user && user.token === message.owner.token && <button onClick={handleDelete}>Delete</button>}
+        {!editing && user && user.token === message.owner.token && <button onClick={handleDelete}>Delete</button>}
       </div>
     </div>
   )
