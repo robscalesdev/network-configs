@@ -43,7 +43,7 @@ const Banner = () => {
           </div>
           <div className={styles.bannerButtons}>
             <button className={styles.infoBtn} onClick={toggle}>
-              read more
+              Read More
             </button>
             <button className={styles.infoBtn}>More Info</button>
           </div>

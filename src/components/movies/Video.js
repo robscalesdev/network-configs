@@ -8,14 +8,20 @@ const Video = ({ movie }) => {
     <>
       <div style={{
         width: '100%',
-        height: '60vh',
-        borderStyle: 'solid',
+        height: '62vh',
+        backgroundColor: '#111',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
       }}>
         <div className={styles.videoResponsive}>
-          <h1>{movie.title}</h1>
+          <h1 style={{
+            marginTop: '1rem',
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>{movie.title}</h1>
           <iframe
             width="853"
             height="480"
