@@ -25,19 +25,18 @@ const MessageBoard = ({ user }) => {
     const body = {
       board: id,
       text: newMessage,
-      owner: user.email
+      owner: user
     }
 
     createMessage(body)
       .then(() => {
         setNewMessage('')
+        onRefresh()
       })
       .catch(console.error)
   }
 
   const onRefresh = (e) => {
-    e.preventDefault()
-
     getMessages(id)
       .then(res => {
         console.log(res.data)
@@ -89,7 +88,7 @@ const MessageBoard = ({ user }) => {
         <button>Submit</button>
       </form>}
       {messages.map(message => {
-        return <Message key={message._id} message={message} user={user}/>
+        return <Message key={message._id} message={message} user={user} refresh={onRefresh} />
       })}
     </div>
   )
