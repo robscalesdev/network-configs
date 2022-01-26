@@ -6,6 +6,7 @@ import { changePasswordSuccess, changePasswordFailure } from '../AutoDismissAler
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Navigate } from 'react-router-dom'
 
 class ChangePassword extends Component {
   constructor (props) {
@@ -13,7 +14,8 @@ class ChangePassword extends Component {
 
     this.state = {
       oldPassword: '',
-      newPassword: ''
+      newPassword: '',
+      navigate: false
     }
   }
 
@@ -25,7 +27,7 @@ handleChange = (event) =>
 onChangePassword = (event) => {
   event.preventDefault()
 
-  const { msgAlert, history, user } = this.props
+  const { msgAlert, user } = this.props
 
   changePassword(this.state, user)
     .then(() =>
@@ -35,7 +37,7 @@ onChangePassword = (event) => {
         variant: 'success'
       })
     )
-    .then(() => history.push('/'))
+    .then(() => this.setState({ navigate: true }))
     .catch((error) => {
       this.setState({ oldPassword: '', newPassword: '' })
       msgAlert({
@@ -48,6 +50,10 @@ onChangePassword = (event) => {
 
 render () {
   const { oldPassword, newPassword } = this.state
+
+  if (this.state.navigate) {
+    return <Navigate to='/' />
+  }
 
   return (
     <div className='row'>

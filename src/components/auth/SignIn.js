@@ -5,6 +5,7 @@ import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Navigate } from 'react-router-dom'
 
 class SignIn extends Component {
   constructor (props) {
@@ -12,7 +13,8 @@ class SignIn extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      navigate: false
     }
   }
 
@@ -24,7 +26,7 @@ handleChange = (event) =>
 onSignIn = (event) => {
   event.preventDefault()
 
-  const { msgAlert, history, setUser } = this.props
+  const { msgAlert, setUser } = this.props
 
   signIn(this.state)
     .then((res) => setUser(res.data.user))
@@ -35,7 +37,7 @@ onSignIn = (event) => {
         variant: 'success'
       })
     )
-    .then(() => history.push('/'))
+    .then(() => this.setState({ navigate: true }))
     .catch((error) => {
       this.setState({ email: '', password: '' })
       msgAlert({
@@ -48,6 +50,10 @@ onSignIn = (event) => {
 
 render () {
   const { email, password } = this.state
+
+  if (this.state.navigate) {
+    return <Navigate to='/' />
+  }
 
   return (
     <div className='row'>

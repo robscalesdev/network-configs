@@ -1,22 +1,14 @@
-import React, { useState } from 'react'
-// import { Navigate } from 'react-router-dom'
+import React from 'react'
 import { deleteMessage } from '../../api/messages'
 
 const Message = ({ message, user, refresh }) => {
-  const [deleted, setDeleted] = useState(false)
-
-  const handleDelete = (event) => {
-    event.preventDefault()
-    console.log(message._id)
+  const handleDelete = () => {
     deleteMessage(message._id, user)
       .then(() => {
-        setDeleted(true)
         refresh()
       })
       .catch(console.error)
   }
-
-  console.log(deleted)
 
   return (
     <div style={{
