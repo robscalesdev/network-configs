@@ -10,7 +10,6 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import { signIn } from './api/auth'
 import Movies from './components/movies/Movies'
 import Movie from './components/movies/Movie'
 import Admin from '../src/components/movies/Admin'
@@ -43,18 +42,6 @@ class App extends Component {
         msgAlerts: [...state.msgAlerts, { heading, message, variant, id }]
       }
     })
-  }
-
-  // automatic sign-in
-  componentDidMount () {
-    const credentials = {
-      email: 'test@class',
-      password: 'test'
-    }
-
-    signIn(credentials)
-      .then(res => this.setUser(res.data.user))
-      .catch(console.error)
   }
 
   render () {
