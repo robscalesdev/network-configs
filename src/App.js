@@ -3,18 +3,14 @@ import React, { Component, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
-import Spacer from './components/Header/Spacer'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
-import Header from './components/Header/Header'
+import Header from './components/header/Header'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import Movies from './components/movies/Movies'
-import Movie from './components/movies/Movie'
-import Admin from '../src/components/movies/Admin'
-import AdminMovie from '../src/components/movies/AdminMovie'
-import MovieCreate from './components/movies/MovieCreate'
+
+import Home from './components/routes/Home'
 
 class App extends Component {
   constructor (props) {
@@ -49,8 +45,7 @@ class App extends Component {
 
     return (
       <Fragment>
-	      <Header user={user} />
-        <Spacer />
+	      <Header />
 	      {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
@@ -91,25 +86,10 @@ class App extends Component {
                 <ChangePassword msgAlert={this.msgAlert} user={user} />
               }
             />
-            <Route
-              path='/movies/:id'
-              element={<Movie user={user} />}/>
-            <Route
-              path='/'
-              element={<Movies />}
-            />
 
             <Route
-              path='/admin'
-              element={<Admin />}
-            />
-            <Route
-              path='/adminMovie/new'
-              element={<MovieCreate />}
-            />
-            <Route
-              path='/adminMovie/:id'
-              element={<AdminMovie />}
+              path='/'
+              element={<Home />}
             />
           </Routes>
         </main>

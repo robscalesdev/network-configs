@@ -1,14 +1,14 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const getMessages = (id) => {
+export const getItem = (id) => {
   return axios({
     url: apiUrl + `/messages/${id}`,
     method: 'GET'
   })
 }
 
-export const createMessage = (body) => {
+export const createItem = (body) => {
   console.log(body)
   return axios({
     url: apiUrl + '/messages/',
@@ -24,7 +24,7 @@ export const createMessage = (body) => {
   })
 }
 
-export const deleteMessage = (id, user) => {
+export const deleteItem = (id, user) => {
   return axios({
     url: apiUrl + `/messages/${id}`,
     method: 'DELETE',
@@ -32,14 +32,14 @@ export const deleteMessage = (id, user) => {
   })
 }
 
-export const changeMessage = (id, text, user) => {
+export const changeItem = (id, user, /*value*/) => {
   return axios({
     url: apiUrl + `/messages/${id}`,
     headers: { Authorization: `Bearer ${user.token}` },
     method: 'PATCH',
     data: {
-      message: {
-        text
+      item: {
+        value
       }
     }
   })

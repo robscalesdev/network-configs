@@ -7,14 +7,6 @@ import styles from '../styles/Navbar.module.css'
 
 const authenticatedOptions = (
   <Fragment>
-
-    <img
-      src="https://i.imgur.com/YcP0tik.jpeg"
-      height="35"
-      width="35"
-      className="d-inline-block align-top"
-      alt="profile icon"
-    />
     <NavDropdown style={{ color: '#FFF' }}>
       <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
       <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
@@ -34,9 +26,6 @@ const unauthenticatedOptions = (
 const Header = ({ user }) => (
   <Navbar className={ styles.navbar } expand='md'>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    <Navbar.Brand>
-      <NavLink to='/' style={{ color: '#ee4b2b', textDecoration: 'none', fontFamily: 'Lobster', fontSize: '2rem', display: 'flex', alignItems: 'center' }}>MusicFlix</NavLink>
-    </Navbar.Brand>
     <Navbar.Collapse id='basic-navbar-nav' className={styles.menu}>
       <Nav>
         {user ? authenticatedOptions : unauthenticatedOptions}
