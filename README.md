@@ -1,4 +1,4 @@
-# MusicFlix Frontend
+# Project-name Frontend
 ### Link To Deployed Website
 (https://google.com)
 
