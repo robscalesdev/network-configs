@@ -6,8 +6,12 @@
  }
 
  .menu {
-     justify-content: end;
+     justify-content: flex-end;
      align-items: flex-end;
      display: flex;
      padding-right: 5%;
+ }
+
+ .options {
+     margin-right: 3rem;
  }

@@ -1,45 +1,55 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const getItem = (id) => {
+export const getNetworks = (owner) => {
   return axios({
-    url: apiUrl + `/messages/${id}`,
-    method: 'GET'
+    url: apiUrl + '/networks/',
+    method: 'GET',
+    headers: { Authorization: `Token ${owner.token}` }
   })
 }
 
-export const createItem = (body) => {
+export const getNetwork = (id, owner) => {
+  return axios({
+    url: apiUrl + `/networks/${id}`,
+    method: 'GET',
+    headers: { Authorization: `Token ${owner.token}` }
+  })
+}
+
+export const createNetwork = (body) => {
   console.log(body)
   return axios({
-    url: apiUrl + '/messages/',
+    url: apiUrl + '/networks/',
     method: 'POST',
-    headers: { Authorization: `Bearer ${body.owner.token}` },
+    headers: { Authorization: `Token ${body.owner.token}` },
     data: {
-      message: {
-        board: body.board,
-        text: body.text,
+      network: {
+        address: body.address,
+        subnet: body.subnet,
         owner: body.owner
       }
     }
   })
 }
 
-export const deleteItem = (id, user) => {
+export const deleteNetwork = (id, user) => {
   return axios({
-    url: apiUrl + `/messages/${id}`,
+    url: apiUrl + `/networks/${id}/`,
     method: 'DELETE',
-    headers: { Authorization: `Bearer ${user.token}` }
+    headers: { Authorization: `Token ${user.token}` }
   })
 }
 
-export const changeItem = (id, user, /*value*/) => {
+export const changeNetwork = (id, user, body) => {
   return axios({
-    url: apiUrl + `/messages/${id}`,
-    headers: { Authorization: `Bearer ${user.token}` },
+    url: apiUrl + `/networks/${id}/`,
+    headers: { Authorization: `Token ${user.token}` },
     method: 'PATCH',
     data: {
-      item: {
-        value
+      network: {
+        address: body.address,
+        subnet: body.subnet
       }
     }
   })

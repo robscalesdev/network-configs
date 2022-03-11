@@ -11,6 +11,8 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
 import Home from './components/routes/Home'
+import NewNetwork from './components/routes/NewNetwork'
+import EditNetwork from './components/routes/EditNetwork'
 
 class App extends Component {
   constructor (props) {
@@ -45,7 +47,7 @@ class App extends Component {
 
     return (
       <Fragment>
-	      <Header />
+	      <Header user={user} />
 	      {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
@@ -86,10 +88,21 @@ class App extends Component {
                 <ChangePassword msgAlert={this.msgAlert} user={user} />
               }
             />
-
+            <Route
+              path='/new-network'
+              element={
+                <NewNetwork user={user} />
+              }
+            />
+            <Route
+              path='/edit-network/:id'
+              element={
+                <EditNetwork user={user} />
+              }
+            />
             <Route
               path='/'
-              element={<Home />}
+              element={<Home user={user} />}
             />
           </Routes>
         </main>
